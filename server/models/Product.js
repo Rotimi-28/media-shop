@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
-const { Product } = require(".");
+import mongoose, { model } from "mongoose";
+import _default from ".";
+const { Product } = _default;
 
 const { Schema } = mongoose;
 
@@ -52,6 +53,6 @@ const productSchema = new Schema({
     }
 });
  
-const Product = mongoose.model("Product", productSchema);
+const product = model("Product", productSchema);
 
-module.exports = Product;
+export default Product;

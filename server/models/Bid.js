@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
@@ -19,4 +19,4 @@ const Bid = new Schema({
     }
 });
 
-module.exports = Bid;
+export default Bid;
