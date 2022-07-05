@@ -1,5 +1,12 @@
 import React from "react";
-function Jumbotron({
+function Jumbotron({ children }) {
+    retrun (
+        <div
+           style={{ height: 500, clear: "both", paddingTop: 120, textAlign: "center" }} 
+           >
+            {children}
+        </div>
+    );
+}
 
-    //return()
-});
+export default Jumbotron;
