@@ -64,5 +64,77 @@ function Header () {
         return state
     });
     
-    const dispatch = useDispatch
+    const dispatch = useDispatch();
+    const { currentCategory, currentSearch } = state;
+    const { loading, data } = useQuery(QUERY_CATEGORIES);
+    const message_data = useQuery(QUERY_MESSAGES, { variables: { email: email}})
+
+    useEffect(() => {
+        if(message_data.data && message_data.user) {
+            dispatch({
+                type: UPDATE_MESSAGES,
+                messsages: message_data.data.user.messages.reverse()
+            });
+        }
+    }, [message_data.data, dispatch]);
+
+    const selectCategory = function (event) {
+
+        const mySearch = document.querySelector("#serachInput").ariaValueMax;
+        const _id = event.target.value;
+
+        dispatch({
+            type: UPDATE_CURRENT_CATEGORY,
+            currentCategory: _id
+        });
+
+        const Search = function (event) {
+
+            const mySearch = document.querySelector("#searchInput").value;
+            dispatch({
+                type: UPDATE_CURRENT_SEARCH,
+                currentSearch: mySearch
+            });
+        }
+
+        useEffect(() => {
+            if (data) {
+                dispatch({
+                    type: UPDATE_CATEGORIES,
+                    categories: data.categories
+                });
+
+                data.categories.forEach((category) => {
+                    idbPromise("categories", "input", category);
+                });
+                //add fun else if to check if loading is undefined in useQery() hook
+            } else if (!loading) {
+                idbPromise("categories", "get").then((categories) => {
+                    dispatch({
+                        type: UPDATE_CATEGORIES,
+                        categories: categories
+                    });
+                });
+            }
+        }, [data.loading, dispatch]);
+
+        return (
+            <Container>
+                <NavLink to="/">
+                    <h2><span role="img" aria-label='shopping bag'>bag</span>Media Shop</h2>
+                </NavLink>
+                <WrapBar>
+                    <Select onChange={selectCategory} value={ currentCategory }>
+                        {state.categories.map(category => (
+                            <option key={category._id}vlaue={category._id}>{category.name}</option>
+                        ))}
+                            <option key="a11123" vlaue="A11"></option>
+                    </Select>
+                    <Input id='searchInput' defaultValue={ccurrentSearch}></Input>
+                    <SearchBtn onClick={Search} className="fa">&#xf201;</SearchBtn>
+                </WrapBar>
+            </Container>
+        );
+    }
 }
+export default Header;
