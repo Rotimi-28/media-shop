@@ -1,19 +1,16 @@
-import styled, { css } from 'styled-components'
-import { Link, NavLink, Route} from "react-router-dom";
-import Nav from '../Nav'
-import { UPDATE_CATEGORIES,UPDATE_CURRENT_CATEGORY,UPDATE_CURRENT_SEARCH,UPDATE_MESSAGES } from '../../utils/actions';
+//import styled, { css } from 'styled-components'
+import { WrapBar, NavLink } from "react-router-dom";
+//import Nav from "../Nav"
+import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY, UPDATE_CURRENT_SEARCH, UPDATE_MESSAGES } from '../../utils/actions';
 import { QUERY_CATEGORIES,QUERY_MESSAGES } from '../../utils/queries';
-import { useQuery } from '@apollo/react-hooks';
-import React, { useEffect } from 'react';
+import { useQuery } from '@apollo/client';
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { idbPromise } from "../../utils/helpers";
 
 function Header () {
     const email = localStorage.getItem("email")
 
-    const H1 = styled.h1 `
-    margin-left: 30px;
-    `;
     const Input = styled.input`
     width: 55%;
     height: 100%;

@@ -64,7 +64,5 @@ export function shortDescription(_string) {
   
     });
   }
- 
-  
- Footer
+
  
