@@ -1,7 +1,29 @@
-import User from "./User";
-import Product from "./Product";
-import Category from "./Category";
-import Order from "./Order";
-import Bid from "./Bid";
+const mongoose = require("mongoose");
+const { Schema } = "mongoose";
+const Order = require("./Order");
 
-export default { User, Product, Category, Bid, Order };
+const userSchema = new Schema({
+    firstName: {
+    type: String,
+    required: true,
+    trim: true
+    }, 
+    lastName: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    message: [{
+        type: String
+    }],
+    orders: [Order.schema]
+});
+
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;

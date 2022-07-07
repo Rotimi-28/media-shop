@@ -1,4 +1,4 @@
-import { connection } from "mongoose";
+ const mongoose = require("mongoose");
 
 connection(process.env.MONGODB_URI || "mongodb://localhost/media-shop", {
     useNewUrlParser: true,
