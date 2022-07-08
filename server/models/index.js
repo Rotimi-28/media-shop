@@ -1,29 +1,10 @@
-const mongoose = require("mongoose");
-const { Schema } = "mongoose";
-const Order = require("./Order");
 
-const userSchema = new Schema({
-    firstName: {
-    type: String,
-    required: true,
-    trim: true
-    }, 
-    lastName: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    message: [{
-        type: String
-    }],
-    orders: [Order.schema]
-});
+const User = require ("./User");
+const Product = require("./Product");
+const Category = require ("./Category");
+const Order = require ("./Order");
+const Bid = require ("./Bid");
 
-const User = mongoose.model("User", userSchema);
+module.exports = { User, Product, Category, Bid, Order };
 
-module.exports = User;
+

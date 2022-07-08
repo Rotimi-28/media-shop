@@ -1,14 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hook";
-import ApolloClient from "@apollo/client";
+
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+  operationName,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 import Header from "./components/Header";
 import Message from "./components/Message";
-import shop from "./redux/shop";
+import Provider from './pages/Login';
+import shop from  './redux/';
+import Home from './pages/Home';
+import Cart from './pages/Cart';
 import Success from "./pages/Success";
-import Cart from "./pages/Cart";
-import Home from "./pages/Home";
 import Login from "./pages/Login"
+
+
 //import './App.css';
 
 

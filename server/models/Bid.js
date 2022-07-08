@@ -19,4 +19,4 @@ const Bid = new Schema({
     }
 });
 
-export default Bid;
+module.exports = {Bid};
