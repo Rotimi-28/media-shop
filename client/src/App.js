@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hook";
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,6 +16,9 @@ import Provider from './pages/Login';
 import shop from  './redux/';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import Success from "./pages/Success";
+import Login from "./pages/Login"
+
 
 //import './App.css';
 
@@ -39,10 +43,16 @@ function App() {
         <div>
           <Provider shop={shop}>
             <Header />
+
+            <Switch>
+            <Header />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/login"  component={Login}/>
             <Route exact path="/messges" component={Message} />
+            <Route exact path="/success" component={Success} />
+            <Router exact path="/orderHistory" component={OrderHistory}/>
+            </Switch>
           </Provider>
         </div>
       </Router>

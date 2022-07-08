@@ -1,4 +1,6 @@
+
 const { Schema, model } = require("mongoose");
+const mongoose =  require("mongoose");
 import _default from ".";
 const { Product } = _default;
 

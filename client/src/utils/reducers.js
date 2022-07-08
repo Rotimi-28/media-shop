@@ -1,7 +1,6 @@
 import { useReducer } from "react";
 
 import {
-    UPDATE_PRODUCTS,
     UPDATE_CATEGORIES,
     UPDATE_CURRENT_CATEGORY,
     UPDATE_CURRENT_SEARCH,

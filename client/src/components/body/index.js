@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components";
+//import styled, { css } from "styled-components";
 import Product from "../Product";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_PRODUCTS } from "../../utils/actions";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import { idbPromise } from "../../utils/helpers";
 
 

@@ -1,7 +1,10 @@
 const { authenticationError } = require("apollo-server-express");
-const { User, Product, Category, Order } = require("../models").default;
+const { User, Product, Category, Order } = require("../models");
 const { findOneAndUpdate, findOneAndDelete } = require("../models/User");
-const stripe = require("stripe");
+
+
+//import User from "../models/User";
+const stripe = require("stripe")
 
 const resolvers = {
     Query: {
