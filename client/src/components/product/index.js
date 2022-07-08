@@ -10,7 +10,7 @@ import React, { useEffect } from "react";
 import { idbPromise } from "../../utils/helpers";
 
 //bid auction
- function Product(prop) {
+function Product(prop) {
     const { _id, image, title, price, description, cart, bidTimeStamp, bidValue, bidderName } = prop;
 
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ import { idbPromise } from "../../utils/helpers";
     useEffect(() => {
         const timer = setInterval(updTimeStamp, 1000);
         let timeLeft = 0;
-         function updateTimeStamp() {
+        function updateTimeStamp() {
             if (!bidTimeStamp) return;
             const m = moment(bidTimeStamp).format();
 
@@ -37,7 +37,7 @@ import { idbPromise } from "../../utils/helpers";
                 return;
             }
             if(document.querySelector("#remaininTime"+_id)) document.querySelector("#remaininTime"+_id).textContent = hhmmss(expire);
-         }
+        }
 
     }, [dispatch])
     function pad(num) {
