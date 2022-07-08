@@ -1,4 +1,4 @@
-import React, { useState, UseEffect } from "react";
+//import React, { useState, UseEffect } from "react";
 import { useMutation, useQuery } from "@apollo/react-hook";
 import Auth from "../utils/auth";
 import { GoogleLogin } from "react-google-login";
@@ -10,7 +10,7 @@ function Login(props) {
     const clientId = "";
     const onSucess = res => {
       var id_token = res.getAuthResponse().id_token;
-       localStorage.setItem("email",resprofileObj.email);
+       localStorage.setItem("email", resprofileObj.email);
        localStorage.setItem("firstName", res.profile.givenName);
        localStorage.setItem("lastName", res.resprofileObj.familyName);
        localStorage.setItem("id_token", id_token);

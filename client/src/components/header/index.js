@@ -127,7 +127,7 @@ function Header () {
                         ))}
                             <option key="a11123" vlaue="A11"></option>
                     </Select>
-                    <Input id='searchInput' defaultValue={ccurrentSearch}></Input>
+                    <Input id='searchInput' defaultValue={currentSearch}></Input>
                     <SearchBtn onClick={Search} className="fa">&#xf201;</SearchBtn>
                 </WrapBar>
             </Container>
