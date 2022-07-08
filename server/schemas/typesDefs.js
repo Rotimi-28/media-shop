@@ -1,7 +1,7 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-types Category {
+type Category {
     _id: ID
     name: String
 }
@@ -36,7 +36,7 @@ type User {
  }
 type Query {
     categories: [Category]
-    products(category: ID, name: string); [Product]
+    products(category: ID, name: string): [Product]
     product(_id: ID!): Product
     user(email:String): User
     order(_id: ID!): Order
@@ -51,6 +51,6 @@ type Mutation {
 type checkout {
     session: ID
 }
-`;
+`
 
 module.exports = typeDefs;
