@@ -1,0 +1,27 @@
+{
+  "name": "media-shop",
+  "version": "1.0.0",
+  "description": "Media Shop is online market for all digital media from E-books, video games, music, movies and more. Media shop is always on top of the latest digital media allowing you to easily find products you are looking for.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rotimi-28/media-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rotimi-28/media-shop/issues"
+  },
+  "homepage": "https://github.com/Rotimi-28/media-shop#readme",
+  "devDependencies": {
+    "concurrently": "^7.2.2"
+  }
+}

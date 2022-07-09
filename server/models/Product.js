@@ -1,8 +1,6 @@
 
-const { Schema, model } = require("mongoose");
+//const { Schema, model } = require("mongoose");
 const mongoose =  require("mongoose");
-import _default from ".";
-const { Product } = _default;
 
 const { Schema } = mongoose;
 
@@ -24,7 +22,7 @@ const productSchema = new Schema({
     min: 0.99,
   },
   category: {
-    type: Schema.Types.OBjectId,
+    type: Schema.Types.ObjectId,
     ref: "Category",
     required: true,
   },
@@ -55,6 +53,6 @@ const productSchema = new Schema({
   },
 });
 
-const product = model("Product", productSchema);
+const Product = mongoose.model("Product", productSchema);
 
-module.export = { Product };
+module.exports = Product;

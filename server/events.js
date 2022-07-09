@@ -1,6 +1,6 @@
 const EventEmitter = require("eventemitter3");
 const emitter = new EventEmitter();
-const { Product, User, Order } = require("./models").default;
+const { Product, User, Order } = require("./models")
 let moment = require("moment"); //require
 
 function subscribe(req, res) {

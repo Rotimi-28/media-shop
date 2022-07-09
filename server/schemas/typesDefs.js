@@ -7,16 +7,16 @@ type Category {
 }
 type Product {
     _id: ID 
-    name: string
+    name: String
     image: String
     quantity: Int
-    price: float 
+    price: Float 
     category: Category
     bidderId: String
     bidderName: String
-    bidValue: float
+    bidValue: Float
     BidTimestamp: String
-    sold: Boolen
+    sold: Boolean
 }
 type Order {
     _id: ID
@@ -25,7 +25,7 @@ type Order {
 }
 type User {
     _id: ID 
-    firstName: string
+    firstName: String
     lastName: String
     email: String
     order: [Order]
@@ -34,9 +34,12 @@ type User {
  type Auth {
     user: User
  }
+ type Checkout {
+    session: ID
+}
 type Query {
     categories: [Category]
-    products(category: ID, name: string): [Product]
+    products(category: ID, name: String): [Product]
     product(_id: ID!): Product
     user(email:String): User
     order(_id: ID!): Order
@@ -46,11 +49,9 @@ type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!): Auth
     addOrder(products: [ID!]): Order
     updateUser(firstName: String, lastName: String, email: String): User
-    updateProduct(_id: ID!, value: float!, bidderId:String!, bidderName:String!): Product
+    updateProduct(_id: ID!, value: Float!, bidderId:String!, bidderName:String!): Product
 }
-type checkout {
-    session: ID
-}
+
 `
 
 module.exports = typeDefs;

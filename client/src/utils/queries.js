@@ -1,4 +1,4 @@
-import gql from "graphql";
+import { gql } from "@apollo/client";
 
 export const QUERY_CATEGORY = gql`
 query categories{

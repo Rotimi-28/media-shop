@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-route-dom";
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client"
 import { QUERY_USER } from "../utils/queries";
-import { useQuery } from "@apollo/react-hook";
+//import { useQuery } from "@apollo/react-hook";
 
 function OderHistory() {
     const { data } = useQuery(QUERY_USER);

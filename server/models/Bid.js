@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
@@ -19,4 +19,4 @@ const Bid = new Schema({
     }
 });
 
-module.exports = {Bid};
+module.exports = Bid;

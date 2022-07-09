@@ -11,7 +11,7 @@ const Home = () => {
     const dispatch = useDispatch();
 
     useEffect(() =>{
-        const evSource = new EventSource("/events");
+        const evtSource = new EventSource("/events");
         const evSource2 = new EventSource("/events");
 
         evSource2.addEventListener("UPDATE_MESSAGES", function (evt) {

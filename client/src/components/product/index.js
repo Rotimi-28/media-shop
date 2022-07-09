@@ -1,6 +1,6 @@
 import styled, { css } from "styled-component";
 import Auth from "../../utils/auth";
-import { useMutation } from "@apollo/react-hook";
+import { useMutation } from "@apollo/client";
 import {shortdescription} from "../../utils/helpers";
 import {ADD_TO_CART, REMOVE_FROM_CART} from "../../utils/actions";
 import  { useDispatch } from "react";
@@ -21,7 +21,7 @@ function Product(prop) {
     let updateData = null;
 
     useEffect(() => {
-        const timer = setInterval(updTimeStamp, 1000);
+        const timer = setInterval(updateTimeStamp, 1000);
         let timeLeft = 0;
         function updateTimeStamp() {
             if (!bidTimeStamp) return;
@@ -57,7 +57,7 @@ function Product(prop) {
         dispatch({
             type: ADD_TO_CART,
             product: {
-                _id: id,
+                _id: _id,
                 image: image,
                 title: title,
                 price: price,
@@ -66,12 +66,12 @@ function Product(prop) {
         });
     }
     const remoFromCart = function () {
-        const item = { _id: id };
+        const item = { _id: _id };
         idbPromise("cart", "delet", item );
 
         dispatch({
             type: REMOVE_FROM_CART,
-            _id: id
+            _id: _id
         });
     }
 
@@ -79,7 +79,7 @@ function Product(prop) {
         if(!Auth.loggedIn()) 
         {
             alert("you must logged in to place order")
-            retun
+            return
         }
           mutationResponse ();
 
@@ -100,7 +100,7 @@ function Product(prop) {
 
         const response = await updateProduct({
             variables: {
-                _id: id,
+                _id: _id,
                 value: parseFloat(value),
                 bidTimeStamp:stamp.toString(),
                 biddername:firstName+" "+lastName,
@@ -243,14 +243,14 @@ function Product(prop) {
                         <Inner><span id={"remainingTime"+_id}></span></Inner> <H4 clasName="fa">&#xf201; {bidderName? bidderName:""}</H4>
                         </Cardhead> 
                         <CardBody>
-                            <p>{shortdescription(description)}</p>
+                            <p>{description(description)}</p>
                             </CardBody>  
                     </Card>
                 </Container>
             )
         }
         if (cart === "yes") {
-            retun (
+            return (
                 <Container>
 
                     <Img />

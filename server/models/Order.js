@@ -1,9 +1,11 @@
 
-const { Schema } = require("mongoose");
 const mongoose = require("mongoose");
 
+const { Schema, model } = mongoose;
 
-const { Schema } = mongoose;
+
+//const { Schema } = mongoose;
+
 const orderSchema = new Schema({
   purchaseDate: {
     type: Date,
@@ -11,12 +13,12 @@ const orderSchema = new Schema({
   },
   products: [
     {
-      type: Schema.types.ObjectId,
-      ref: "Product",
+      type: Schema.Types.ObjectId,
+      ref: "Product", 
     },
   ],
 });
 
-const Order = model("order", orderSchema);
+const Order = mongoose.model("Order", orderSchema);
 
-modules.export = { Order };
+module.exports = Order;

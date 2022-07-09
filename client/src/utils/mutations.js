@@ -1,4 +1,4 @@
-import gql from "graphql";
+import { gql } from "@apollo/client";
 
 export const UPDATE_BID = gql`
 mutation updateProduct($_id: ID!,$value:Float!,$bidTimeStamp:String!,$bidderName:String!,$bidderId:String!){

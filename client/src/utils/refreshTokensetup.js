@@ -17,3 +17,6 @@ export const reffreshTokenSetup = (res) => {
     //setup first refresh timer
     setTimeout(reffreshToken, reffreshTiming);
 }
+
+
+export default reffreshTokenSetup;

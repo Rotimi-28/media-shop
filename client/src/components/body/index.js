@@ -1,4 +1,4 @@
-//import styled, { css } from "styled-components";
+import styled, { css } from "styled-components";
 import Product from "../Product";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import React, { useEffect } from "react";
@@ -48,7 +48,7 @@ function Body() {
         let products = state.products
 
         if(currentCategory) products = products.filter(product => product.category._id === currentCategory);
-        if(currentSearch) products = products.filter(product.name.tolowerCase().includees(currentSearch.tolowerCase()));
+    // if(currentSearch) products = products.filter(product.name.tolowerCase().includes(currentSearch.tolowerCase()));
         return products  
     }
 
