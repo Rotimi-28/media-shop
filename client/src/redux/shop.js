@@ -1,7 +1,7 @@
 import reducer from "../utils/reducers";
-import {createShop} from "redux";
+import {createStore} from "redux";
 
-const shop = createShop(reducer);
+let store = createStore(reducer);
 
 
-export default shop;
+export default store;

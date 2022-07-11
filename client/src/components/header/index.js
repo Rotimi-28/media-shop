@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { WrapBar, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 //import Nav from "../Nav"
 import {
   UPDATE_CATEGORIES,
@@ -7,7 +7,7 @@ import {
   UPDATE_CURRENT_SEARCH,
   UPDATE_MESSAGES,
 } from "../../utils/actions";
-import { QUERY_CATEGORIES, QUERY_MESSAGES } from "../../utils/queries";
+import { QUERY_CATEGORY, QUERY_MESSAGES } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -68,7 +68,7 @@ function Header() {
 
   const dispatch = useDispatch();
   const { currentCategory, currentSearch } = state;
-  const { loading, data } = useQuery(QUERY_CATEGORIES);
+  const { loading, data } = useQuery(QUERY_CATEGORY);
   const message_data = useQuery(QUERY_MESSAGES, {
     variables: { email: email },
   });
@@ -130,7 +130,6 @@ function Header() {
           Media Shop
         </h2>
       </NavLink>
-      <WrapBar>
         <Select onChange={selectCategory} value={currentCategory}>
           {state.categories.map((category) => (
             <option key={category._id} vlaue={category._id}>
@@ -143,7 +142,6 @@ function Header() {
         <SearchBtn onClick={Search} className="fa">
           &#xf201;
         </SearchBtn>
-      </WrapBar>
     </Container>
   );
 }

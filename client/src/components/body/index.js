@@ -11,9 +11,11 @@ import { idbPromise } from "../../utils/helpers";
 //container content and UI login for main part of the UI showing product and the detail
 
 function Body() {
+    console.log("bodyComponents");
     const state = useSelector((state) => {
         return state
     });
+
 
     const dispatch = useDispatch();
      const { currentCategory, currentSearch } = state;
@@ -49,8 +51,10 @@ function Body() {
 
         if(currentCategory) products = products.filter(product => product.category._id === currentCategory);
     // if(currentSearch) products = products.filter(product.name.tolowerCase().includes(currentSearch.tolowerCase()));
+    console.log(products);
         return products  
     }
+    console.log(filterProducts());
 
     const Container = styled.div`
     display: flex;

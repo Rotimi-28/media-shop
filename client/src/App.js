@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-//import { ApolloProvider } from "@apollo/react-hook";
-import OrderHistory from "./pages/OrderHistory"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+//import { ApolloProvider } from "@apollo/rect-hook";
+import OrderHistory from "./pages/OrderHistory";
 
 import {
   ApolloClient,
@@ -14,7 +14,7 @@ import { setContext } from "@apollo/client/link/context";
 import Header from "./components/Header";
 import Message from "./components/Message";
 import Provider from './pages/Login';
-import shop from  './redux/';
+import shop from  './redux/shop';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Success from "./pages/Success";
@@ -63,15 +63,14 @@ function App() {
           <Provider shop={shop}>
             <Header />
 
-            <Switch>
-            <Header />
+            <Routes>
             <Route exact path="/cart" component={Cart} />
-            <Route exact path="/home" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/login"  component={Login}/>
             <Route exact path="/messges" component={Message} />
             <Route exact path="/success" component={Success} />
             <Router exact path="/orderHistory" component={OrderHistory}/>
-            </Switch>
+            </Routes>
           </Provider>
         </div>
       </Router>

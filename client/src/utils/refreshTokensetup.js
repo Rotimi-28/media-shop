@@ -1,22 +1,22 @@
 import Auth from "../utils/auth";
 
-export const reffreshTokenSetup = (res) => {
+export const refreshTokenSetup = (res) => {
     //time to renew access token
-    let reffreshTiming = (res.tokenObj.expires_in || 3600 - 5 * 60) * 1000;
-    const reffreshToken = async () => {
+    let refreshTiming = (res.tokenObj.expires_in || 3600 - 5 * 60) * 1000;
+    const refreshToken = async () => {
         const newAuthRes = await res.reloadAuthResponse();
-        reffreshTiming = (newAuthRes.expires_in || 3600 - 5 * 60) * 1000;
+        refreshTiming = (newAuthRes.expires_in || 3600 - 5 * 60) * 1000;
         //saveUserToken, newauthres.access_token
 
         //localStorage.setitem""authToken" _id_token
         Auth.login(newAuthRes.id_token)
 
         //setup d othe time after d 1st one
-        setTimeout(reffreshToken, reffreshTiming);
+        setTimeout(refreshToken, refreshTiming);
     };
     //setup first refresh timer
-    setTimeout(reffreshToken, reffreshTiming);
+    setTimeout(refreshToken, refreshTiming);
 }
 
 
-export default reffreshTokenSetup;
+export default refreshTokenSetup;

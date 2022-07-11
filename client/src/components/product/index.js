@@ -1,7 +1,7 @@
-import styled, { css } from "styled-component";
+import styled, { css } from "styled-components";
 import Auth from "../../utils/auth";
 import { useMutation } from "@apollo/client";
-import {shortdescription} from "../../utils/helpers";
+import {shortDescription} from "../../utils/helpers";
 import {ADD_TO_CART, REMOVE_FROM_CART} from "../../utils/actions";
 import  { useDispatch } from "react";
 import moment from "moment"
@@ -259,7 +259,7 @@ function Product(prop) {
                             <h5><b>{title}</b></h5><H3><b>${price}</b></H3><DelBtn delete onClick={remoFromCart}></DelBtn>
                         </Cardhead>
                         <CardBody>
-                            <p>{shortdescription(description)}</p>
+                            <p>{shortDescription(description)}</p>
                             </CardBody> 
                     </Card>
                 </Container>

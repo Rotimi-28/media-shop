@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import styled,  { css } from "styled-Components"
+import styled,  { css } from "styled-components"
 import { useDispatch, useSelector } from "react-redux"
 import Auth from "../../utils/auth";
 import { Link, NavLink, Route } from "react-router-dom";

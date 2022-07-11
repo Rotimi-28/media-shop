@@ -1,5 +1,7 @@
 const APP_PREFIX = "MediaShop";
 const VERSION = "versio_01";
+const CACHE_NAME = APP_PREFIX + VERSION;
+
 const FILE_TO_CACHE = [
     "./index.html",
     "./index.css",
@@ -30,6 +32,7 @@ self.addEventListener("fetch", function (e) {
         } else {
           // if there are no cache, try fetching request
           console.log("file is not cached, fetching : " + e.request.url);
+          
           return fetch(e.request).catch(function () {
             // Do nothing.
           });
@@ -74,3 +77,5 @@ self.addEventListener("fetch", function (e) {
       })
     );
   });
+
+  

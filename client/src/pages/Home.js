@@ -3,11 +3,13 @@ import Body from "../components/Body";
 import { useDispatch } from "react-redux";
 
 
-const clientId = "";
+{ /*const clientId = "";*/ }
 let prevUpdate = null;
 
 
-const Home = () => {
+const Home =() => {
+    console.log("homePage");
+    
     const dispatch = useDispatch();
 
     useEffect(() =>{
@@ -54,11 +56,16 @@ const Home = () => {
                 return false;
             }
         }
+
         return true;
     }
 
     return (
-        <Body />
+        <div>
+        Homepage
+         <Body />
+        </div>
+        
     );
 };
 
