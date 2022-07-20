@@ -1,7 +1,8 @@
 import reducer from "../utils/reducers";
+
 import {createStore} from "redux";
 
-let store = createStore(reducer);
+const store = createStore(reducer);
 
 
 export default store;

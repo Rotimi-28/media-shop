@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_CATEGORY = gql`
+export const QUERY_CATEGORIES = gql`
   query categories {
     categories {
       _id
@@ -11,10 +11,13 @@ export const QUERY_CATEGORY = gql`
 
 export const QUERY_MESSAGES = gql`
   query user($email: String) {
+
     user(email: $email) {
+
       messages
       orders {
-        products {
+        products
+         {
           _id
         }
       }

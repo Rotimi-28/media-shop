@@ -28,6 +28,7 @@ function Body() {
                 type: UPDATE_PRODUCTS,
                 products: data.products
             });
+            console.log(data);
 
             data.products.forEach((product) => {
                 idbPromise("products", "put", product);

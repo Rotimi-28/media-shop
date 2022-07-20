@@ -3,12 +3,14 @@ const { User, Product, Category, Order } = require("../models");
 const { findOneAndUpdate, findOneAndDelete } = require("../models/User");
 
 //import User from "../models/User";
-const stripe = require("stripe")("");
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc.");
 
 const resolvers = {
   Query: {
     categories: async () => {
-      return await Category.find();
+      const categories = await Category.find();
+      console.log(categories);
+      return categories;
     },
     products: async (parent, { category, name }) => {
       const params = {};
@@ -22,7 +24,7 @@ const resolvers = {
           $regex: name,
         };
       }
-      return await product.find(params).populate("category");
+      return await Product.find(params).populate("category");
     },
     product: async (parent, { _id }) => {
       return await Product.findById(_id).populate("category");

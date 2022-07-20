@@ -1,7 +1,7 @@
 //import React, { useState, UseEffect } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import Auth from "../utils/auth";
-//import { GoogleLogin } from "react-google-login";
+import { GoogleLogin } from "react-google-login";
 import { refreshTokenSetup } from "../utils/refreshTokensetup";
 import { ADD_USER } from "../utils/mutations";
 
@@ -27,7 +27,7 @@ function Login(props) {
 
     return (
         <div className="container Sigin">
-            {/* <GoogleLogin
+            <GoogleLogin
             clientId={clientId}
             buttonText="Google Login"
             onSucess={onSucess}
@@ -35,7 +35,7 @@ function Login(props) {
             cookiePolicy={"single_host_origin"}
             isSignedIn={true}
             theme={"dark"}
-            icon={"true"}   />, */}
+            icon={"true"}   />,
             {document.getElementById("googleButton")}
 
         </div>

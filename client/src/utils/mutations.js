@@ -9,16 +9,16 @@ export const UPDATE_BID = gql`
     $bidderId: String!
   ) {
     updateProduct(
-      _id: $_id
-      value: $value
-      bidTimeStamp: $bidTimeStamp
-      bidderName: $bidderName
+      _id: $_id,
+      value: $value,
+      bidTimeStamp: $bidTimeStamp,
+      bidderName: $bidderName,
       bidderId: $bidderId
     ) {
-      biddValue
-      bidTimestamp
-      bidderId
-      name
+      biddValue,
+      bidTimestamp,
+      bidderId,
+      name,
       _id
     }
   }

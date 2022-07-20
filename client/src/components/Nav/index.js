@@ -1,14 +1,14 @@
 import React, {useEffect} from "react";
 import Auth from "../../utils/auth";
 import  { useDispatch, useSelector } from "react-redux";
-import { useQuery } from "@apollo/react-hook"
+import { useQuery } from "@apollo/client"
 import { UPDATE_MESSAGES } from "../../utils/actions";
 import { Link, NavLink, Route } from "react-router-dom";
-import styled, { css } from "styled-component";
+import styled, { css } from "styled-components";
 import { GoogleLogout } from "react-google-login";
 
 
-const clientId =""
+const clientId = "pk_test_51LN2NnKj52mqPfsxAjL9cbmcuEeQskuWHc4p9XUDrhvl1bGlhTwteJ1mpxkw09Cilq4hg0FbgNbMcpJ7IDguMpE600Rn3Dk95V"
 const email = localStorage.getItem("email");
 const firstName = localStorage.getItem("firstName");
 const lastName = localStorage.getItem("lasttName");
@@ -18,7 +18,7 @@ function Nav() {
         return state
     });
 
-    const { cart, message } = state;
+    const { cart, messages } = state;
 
     const UL = styled.u1 `
     width: 1000px;
@@ -69,7 +69,7 @@ function Nav() {
             return (
                 <UL className="flex-row">
                     <Li className="mx-1">
-                        <NavLink to="orderHistory">
+                        <NavLink to="/orderHistory">
                             Orders
                         </NavLink>
                     </Li>
@@ -91,8 +91,10 @@ function Nav() {
                              >
                              </GoogleLogout>
                             }
-                            <Li> <NavLink to="/cart"><SPAN className="fa">&#xf201; ({cart.length})</SPAN></NavLink></Li>
-                        </a>
+                            </a>
+                            <Li> <NavLink to="/cart"><SPAN className="fa">&#xf291; ({cart.length})</SPAN></NavLink></Li>
+                            <Li> <NavLink to="/messages"><SPAN className="fa">&#xf674; ({messages.length})</SPAN></NavLink></Li>
+                        
                     </Li>
 
                 </UL>

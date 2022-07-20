@@ -18,7 +18,7 @@ const initial = {
   categories: [],
   messages: [],
   currentCategory: [],
-  currentsearch: "",
+  currentSearch: "",
 };
 
 export const reducer = (state = initial, action) => {

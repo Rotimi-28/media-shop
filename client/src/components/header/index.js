@@ -1,13 +1,12 @@
 import styled, { css } from "styled-components";
 import { NavLink } from "react-router-dom";
-//import Nav from "../Nav"
 import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
   UPDATE_CURRENT_SEARCH,
   UPDATE_MESSAGES,
 } from "../../utils/actions";
-import { QUERY_CATEGORY, QUERY_MESSAGES } from "../../utils/queries";
+import { QUERY_CATEGORIES, QUERY_MESSAGES } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,6 +24,10 @@ function Header() {
     border-left: 0px;
     outline: 0px;
   `;
+const H1 = styled.input`
+  margin-left: 30px
+  `;
+
   const Container = styled.div`
     padding: 20px;
     display: flex;
@@ -68,7 +71,9 @@ function Header() {
 
   const dispatch = useDispatch();
   const { currentCategory, currentSearch } = state;
-  const { loading, data } = useQuery(QUERY_CATEGORY);
+  console.log(currentCategory);
+
+  const { loading, data } = useQuery(QUERY_CATEGORIES);
   const message_data = useQuery(QUERY_MESSAGES, {
     variables: { email: email },
   });
@@ -77,19 +82,23 @@ function Header() {
     if (message_data.data && message_data.user) {
       dispatch({
         type: UPDATE_MESSAGES,
-        messsages: message_data.data.user.messages.reverse(),
+        messsages: message_data.data.user.messages.reverse()
       });
     }
-  }, [message_data.data, dispatch]);
+  }, message_data.data, dispatch);
 
   const selectCategory = function (event) {
-    const mySearch = document.querySelector("#serachInput").ariaValueMax;
+    const mySearch = document.querySelector("#searchInput").value;
     const _id = event.target.value;
 
     dispatch({
-      type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: _id,
+      type: UPDATE_CURRENT_SEARCH,
+      currentSearch: mySearch
     });
+    dispatch({
+      type: UPDATE_CURRENT_CATEGORY,
+      currentCategory: _id
+    })
   };
   const Search = function (event) {
     const mySearch = document.querySelector("#searchInput").value;
@@ -105,6 +114,7 @@ function Header() {
         type: UPDATE_CATEGORIES,
         categories: data.categories,
       });
+      console.log(data);
 
       data.categories.forEach((category) => {
         idbPromise("categories", "input", category);
@@ -114,34 +124,31 @@ function Header() {
       idbPromise("categories", "get").then((categories) => {
         dispatch({
           type: UPDATE_CATEGORIES,
-          categories: categories,
+          categories: categories
         });
       });
     }
-  }, [data.loading, dispatch]);
+  }, [data, loading, dispatch]);
 
   return (
     <Container>
       <NavLink to="/">
         <h2>
-          <span role="img" aria-label="shopping bag">
-            bag
-          </span>
-          Media Shop
-        </h2>
+          <span role="img" aria-label="shopping bag">🛍️</span>Media Shop</h2>
       </NavLink>
         <Select onChange={selectCategory} value={currentCategory}>
           {state.categories.map((category) => (
-            <option key={category._id} vlaue={category._id}>
+            <option key={category._id} value={category._id}>
               {category.name}
             </option>
           ))}
-          <option key="a11123" vlaue="A11"></option>
+          <option key="a11123" value="A11"></option>
         </Select>
         <Input id="searchInput" defaultValue={currentSearch}></Input>
         <SearchBtn onClick={Search} className="fa">
-          &#xf201;
+          &#xf002;
         </SearchBtn>
+        
     </Container>
   );
 }
