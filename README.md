@@ -1,6 +1,6 @@
 # Media Shop
 
-Media Shop is online market for all digital media from E-books, video games, music, movies and more. Media shop is always on top of the latest digital media allowing you to easily find products you are looking for.
+Media Shop is online market for all digital media from E-books, video games, and  movies. Media shop is always on top of the latest digital media allowing you to easily find products you are looking for.
 
 ## Getting Started
 
@@ -12,7 +12,13 @@ The things you need before installing the software.
 
 * Node
 * React
-* Apollo
+* ApolloClient
+* ApolloProvider
+* Styled {css}
+* Graphql
+* Mongodb
+* mongoose
+* JWT
 
 ### Installation
 
@@ -47,8 +53,8 @@ Feel free to contribute but if so please do the following
 ## Creators
 Creator information:
 
-GitHub: [Rotimi-28 
-GtHub:  jesus1881
+- [GitHub:](Rotimi-28)[email:](matanmearoja@yahoo.com)
+- [GtHub:](jesus1881)[email:](____________)
 
 ## Liscene 
 
