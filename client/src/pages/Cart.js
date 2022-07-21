@@ -4,7 +4,7 @@ import Product from "../components/Product";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { QUERY_CHECKOUT } from "../utils/queries";
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../utils/actions";
+import { ADD_MULTIPLE_TO_CART } from "../utils/actions";
 import Auth from "../utils/auth";
 import {loadStripe} from '@stripe/stripe-js';
 import { useLazyQuery } from "@apollo/client";
@@ -21,8 +21,9 @@ function Cart() {
   cart.forEach((product) => {
     idbPromise("cart", "put", product);
   });
+
   // dispatch using redux
-  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+  const [getCheckout, data] = useLazyQuery(QUERY_CHECKOUT);
   useEffect(() => {
     if (data) {
       stripePromise.then((res) => {

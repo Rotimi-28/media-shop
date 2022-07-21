@@ -1,4 +1,4 @@
-const APP_PREFIX = "MediaShop";
+const APP_PREFIX = "MediaStore";
 const VERSION = "versio_01";
 const CACHE_NAME = APP_PREFIX + VERSION;
 

@@ -16,8 +16,10 @@ import { Provider } from 'react-redux';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Success from "./pages/Success";
-import Login from "./pages/Login"
-import store from './redux/store';
+import Login from "./pages/Login";
+import store from './redux/Store';
+import Nav from './components/Nav';
+
 
 
 
@@ -69,12 +71,15 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+    
       <Router>
-        <div>
+      <div className="flex-column justify-flex-start min-100-vh">
           <Provider store={store}>
+            
             <Header />
-
+            <div className="container">
             <Routes>
+            
             <Route exact path="/" component={Home} />
             <Route exact path="/login"  component={Login}/>
 
@@ -82,9 +87,11 @@ function App() {
             <Route exact path="/messages" component={Message} />
             <Route exact path="/success" component={Success} />
             <Route exact path="/orderHistory" component={OrderHistory} />
+          
             </Routes>
+            </div>
           </Provider>
-        </div>
+          </div>
       </Router>
   </ApolloProvider>
 

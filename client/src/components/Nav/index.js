@@ -1,9 +1,8 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Auth from "../../utils/auth";
-import  { useDispatch, useSelector } from "react-redux";
-import { useQuery } from "@apollo/client"
-import { UPDATE_MESSAGES } from "../../utils/actions";
-import { Link, NavLink, Route } from "react-router-dom";
+import  { useSelector } from "react-redux";
+//import { UPDATE_MESSAGES } from "../../utils/actions";
+import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { GoogleLogout } from "react-google-login";
 

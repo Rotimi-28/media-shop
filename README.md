@@ -47,7 +47,8 @@ Feel free to contribute but if so please do the following
 ## Creators
 Creator information:
 
-GitHub: Rotimi-28 & jesus1881
+GitHub: [Rotimi-28 
+GtHub:  jesus1881
 
 ## Liscene 
 

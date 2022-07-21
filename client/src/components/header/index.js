@@ -1,5 +1,6 @@
-import styled, { css } from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+//import Nav from "../Nav";
 import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
@@ -12,6 +13,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { idbPromise } from "../../utils/helpers";
 
+
+
 function Header() {
   const email = localStorage.getItem("email");
 
@@ -23,9 +26,6 @@ function Header() {
     border-right: 0px;
     border-left: 0px;
     outline: 0px;
-  `;
-const H1 = styled.input`
-  margin-left: 30px
   `;
 
   const Container = styled.div`
@@ -65,6 +65,16 @@ const H1 = styled.input`
     }
   `;
 
+  const WrapBar = styled.div`
+  border: 1px solid #000;
+  width: 55%;
+  boder-radius: 20px 20px;
+  justify-content: space-between;
+  @media (max-width:1000px) {
+    width:95%
+    margin-top:10px;
+  }`;
+
   const state = useSelector((state) => {
     return state;
   });
@@ -85,7 +95,7 @@ const H1 = styled.input`
         messsages: message_data.data.user.messages.reverse()
       });
     }
-  }, message_data.data, dispatch);
+  }, [message_data.data, dispatch]);
 
   const selectCategory = function (event) {
     const mySearch = document.querySelector("#searchInput").value;
@@ -114,7 +124,7 @@ const H1 = styled.input`
         type: UPDATE_CATEGORIES,
         categories: data.categories,
       });
-      console.log(data);
+      console.log(data.categories);
 
       data.categories.forEach((category) => {
         idbPromise("categories", "input", category);
@@ -131,11 +141,15 @@ const H1 = styled.input`
   }, [data, loading, dispatch]);
 
   return (
+    
     <Container>
-      <NavLink to="/">
+      
+      <Link to="/">
+        
         <h2>
-          <span role="img" aria-label="shopping bag">🛍️</span>Media Shop</h2>
-      </NavLink>
+          <span role="img" aria-label="shopping bag">🛍️-</span>Media Shop</h2>
+      </Link>
+      <WrapBar>
         <Select onChange={selectCategory} value={currentCategory}>
           {state.categories.map((category) => (
             <option key={category._id} value={category._id}>
@@ -146,10 +160,10 @@ const H1 = styled.input`
         </Select>
         <Input id="searchInput" defaultValue={currentSearch}></Input>
         <SearchBtn onClick={Search} className="fa">
-          &#xf002;
-        </SearchBtn>
-        
-    </Container>
+          &#xf002;</SearchBtn>
+          </WrapBar>
+       </Container>
+    
   );
 }
 export default Header;

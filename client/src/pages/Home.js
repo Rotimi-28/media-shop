@@ -3,7 +3,7 @@ import Body from "../components/Body";
 import { useDispatch } from "react-redux";
 
 
-{ /*const clientId = "";*/ }
+const clientId = "" 
 let prevUpdate = null;
 
 
@@ -48,11 +48,11 @@ const Home =() => {
     }, [dispatch])
 
     const isSameOBject = function (_data) {
-        if (_data.length != prevUpdate.length)
+        if (_data.length !== prevUpdate.length)
         return false;
         for(let i = 0; i < _data.length; i++) {
             for (let n in _data[i]) {
-                if(_data[i][n] != prevUpdate[i][n])
+                if(_data[i][n] !== prevUpdate[i][n])
                 return false;
             }
         }
@@ -62,7 +62,6 @@ const Home =() => {
 
     return (
         <div>
-        Homepage
          <Body />
         </div>
         
