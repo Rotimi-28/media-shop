@@ -53,8 +53,12 @@ Feel free to contribute but if so please do the following
 ## Creators
 Creator information:
 
-- [GitHub:](Rotimi-28)     [email:](matanmearoja@yahoo.com)
-- [GtHub:](jesus1881)      [email:](____________)
+- [GitHub:](#Rotimi-28)     
+- [GtHub:](#jesus1881)      
+ 
+
+## GitHub Repo Url
+-[]
 
 ## Liscene 
 
